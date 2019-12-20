@@ -79,66 +79,6 @@ function setindex() {
 
 
 
-
-// function setgame() {
-
-//     resetindex()
-//     titre_txt.innerHTML = "Quizz"
-//     bouton1.innerHTML = "Accueil"
-//     bouton1.className = "index"
-//     bouton2.innerHTML = ""
-//     bouton2.className = ""
-
-//     quizz.questions.forEach(element => {
-
-//         var question = document.createElement('question')
-//         question.htmlFor = "h2";
-//         question.id = ide++
-//         document.body.appendChild(question);
-//         question.innerHTML = element["heading"]
-
-
-//         var mybr = document.createElement('br');
-//         document.body.appendChild(mybr);
-
-
-//         element.propositions.forEach(element => {
-
-
-//             var checkbox = document.createElement('input');
-//             checkbox.type = "checkbox";
-//             checkbox.value = element["content"];
-//             checkbox.id = ide++;
-//             checkbox.className = element["correct"];
-
-
-//             var label = document.createElement('label')
-//             label.htmlFor = "label";
-//             label.id = ide++;
-//             label.appendChild(document.createTextNode(element["content"]))
-
-//             document.body.appendChild(checkbox);
-//             document.body.appendChild(label);
-
-//             var mybr = document.createElement('br');
-//             document.body.appendChild(mybr);
-//         });
-//         var mybr = document.createElement('br');
-//         document.body.appendChild(mybr);
-
-//     });
-
-// var btnvalider = document.createElement("BUTTON");
-// btnvalider.innerHTML = "VALIDER"
-// btnvalider.id = ide++
-// document.body.appendChild(btnvalider);
-
-// btnvalider.addEventListener("click", () => {
-//     checkreponses()
-// })
-
-// }
-
 function setgame() {
     resetindex()
     titre_txt.innerHTML = "Quizz"
@@ -231,37 +171,6 @@ function checkreponses(score) {
 
     return score
 }
-
-// function checkreponses() {
-
-//     let array = []
-//     let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
-//     for (let i = 0; i < checkboxes.length; i++) {
-//         array.push(checkboxes[i].className)
-//     }
-//     console.log(array)
-
-//     let score = 0
-//     array.forEach(element => {
-//         if (element == "true") {
-//             score++
-//         }
-//     });
-
-//     alert("mon score: " + score)
-
-//     let record = getRecord()
-//     if (score > record) {
-//         setNewRecord(score)
-//     } else {
-//         setNiceTryPage()
-//     }
-
-// }
-
-
-
 
 
 function setQuestion(index) {
@@ -586,7 +495,7 @@ function setRecordPage() {
             quizz.record.holderName = holderName
             localStorage.setItem('quizz', JSON.stringify(quizz));;
         } else {
-            quizz.record.holderName = "le nulos qui sait pas ecrire son nom dans un champ ;"
+            quizz.record.holderName = "le type qui sait pas ecrire son nom dans un champ ;"
             localStorage.setItem('quizz', JSON.stringify(quizz));;
 
         }
@@ -605,6 +514,6 @@ function setRecordPage() {
 
 function setNiceTryPage() {
     resetquizz()
-    titre_txt.innerHTML = "Dommage t'as failli être fort, retente si tu veux ! \n le meilleur reste " + quizz.record.holderName + " avec " + quizz.record.score + " point(s)"
+    titre_txt.innerHTML = "Dommage! \n le meilleur reste " + quizz.record.holderName + " avec " + quizz.record.score + " point(s)"
 
 }
